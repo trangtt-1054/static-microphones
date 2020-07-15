@@ -41,7 +41,7 @@ export const getStaticProps: GetStaticProps<MicrophoneDetailProps> = async (
   return { props: microphone }; //this component now has access to microphone from db
 };
 
-//in order for us to receive the id
+//in order for us to receive the id, called at build time and lets you specify which paths you want to pre-render.
 export const getStaticPaths: GetStaticPaths<{ id: string }> = async () => {
   const db = await openDB();
   const microphones = await db.all('select * from microphone'); //get a;; the microphone
